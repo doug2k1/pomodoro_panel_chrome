@@ -1,0 +1,40 @@
+<html>
+<head><title>Chrome Pomodoro Panel - Opções</title>
+<link rel="stylesheet" type="text/css" href="styles.css" />
+<script type="text/javascript">
+
+// Saves options to localStorage.
+function save_options() {
+  localStorage["opt_url"] = document.getElementById('opt_url').value;
+  localStorage["opt_user"] = document.getElementById('opt_user').value;
+
+  // Update status to let user know options were saved.
+  var status = document.getElementById("status");
+  status.innerHTML = "Opções salvas.";
+  setTimeout(function() {
+    status.innerHTML = "";
+  }, 1000);
+}
+
+// Restores select box state to saved value from localStorage.
+function restore_options() {
+  document.getElementById('opt_url').value = localStorage["opt_url"];
+  document.getElementById('opt_user').value = localStorage["opt_user"];
+}
+
+</script>
+</head>
+<body onload="restore_options()">
+<div id="status"></div>
+
+URL do Pomodoro Panel:
+<input type="text" id="opt_url" /> <span class="hint">Ex: http://pina.cit:4567</span>
+
+<br />
+Login:
+<input type="text" id="opt_user" /> <span class="hint">Ex: drubin</span>
+
+<br />
+<button onclick="save_options()">Salvar</button>
+</body>
+</html>

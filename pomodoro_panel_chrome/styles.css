@@ -1,0 +1,16 @@
+body { font:12px Arial, Helvetica, sans-serif; } 
+#popup { width:300px; }
+#status { color:#0a0; font-weight:bold; }
+.hidden { display:none; }
+.bt { background-color:#ddd; border:1px solid #aaa; cursor:pointer; display:inline-block; font-size:13px; font-weight:bold; 
+  margin:0 20px 0 0; padding:4px 8px; -webkit-border-radius:2px; }  
+.bt:hover { background-color:#eee; border:1px solid #000; }
+.hint { color:#aaa; font-style:italic; }
+
+#status_list { margin:20px 0 10px; padding:0; width:300px; }
+#status_list li { background-color:green; list-style-type:none; margin:0 0 5px; overflow:hidden; padding:5px; -webkit-border-radius:4px; }
+#status_list .active { background-color:red; }
+#status_list img { float:left; width:48px; }
+#status_list .ulogin { color:#fff; float:left; font-weight:bold; font-size:18px; padding:0 5px; }
+#status_list .utime { color:#fff; float:right; font-weight:bold; font-size:36px; font-style:italic; }
+

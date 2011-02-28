@@ -1,0 +1,43 @@
+<html>
+<script>  
+  var prev_active = 0;
+  
+  function updateStatus() {
+    var url = localStorage["opt_url"],
+      user = localStorage["opt_user"],
+      xhr = new XMLHttpRequest();
+   
+    xhr.open("GET", url + '/' + user + '/json', true);
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4) {
+          var resp = JSON.parse(xhr.responseText);
+          if (resp.active === 1) {
+            var user_time = Math.floor(resp.left_time / 60).toString();
+            prev_active = 1;
+            localStorage["user_time"] = user_time;
+            chrome.browserAction.setBadgeText({text: user_time});
+          } else {
+            if (prev_active === 1) {
+              prev_active = 0;
+              var notification = webkitNotifications.createNotification(
+                '48.png',  
+                'Pomodoro terminado!',  
+                'Hora de tomar um café ;-)'
+              );
+              notification.show();
+            }
+            localStorage.removeItem("user_time");
+            chrome.browserAction.setBadgeText({text: ''});
+          }
+        }
+      }
+      xhr.send(); 
+  }
+
+  if (localStorage["user_time"]) {
+    chrome.browserAction.setBadgeText({text: localStorage["user_time"]});
+  }
+  
+  setInterval("updateStatus()", 5000);
+</script>
+</html>
