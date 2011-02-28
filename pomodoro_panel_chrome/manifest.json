@@ -2,11 +2,11 @@
   "name": "Pomodoro Panel Chrome",
   "version": "0.2",
   "description": "Extensão do Chrome para o Pomodoro Panel.",
-  "update_url": "https://github.com/doug2k1/pomodoro_panel_chrome/raw/master/updates.xml"
+  "update_url": "https://github.com/doug2k1/pomodoro_panel_chrome/raw/master/updates.xml",
   "options_page": "options.html",
   "background_page": "background.html",
   "browser_action": {
-    "default_icon": "icon.png",
+    "default_icon": "19.png",
     "popup": "popup.html"
   },
   "permissions": [
